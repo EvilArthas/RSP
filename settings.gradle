@@ -1,0 +1,5 @@
+rootProject.name = "RSP"
+
+include("client")
+include("server")
+include("common")

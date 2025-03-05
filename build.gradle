@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = "org.example"
+version = "1.0-SNAPSHOT"
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,25 @@
+dependencies {
+    implementation(project(":common"))
+
+    implementation("io.netty:netty-all:4.1.94.Final")
+}
+
+jar {
+    enabled = false
+}
+
+shadowJar {
+    archiveBaseName = 'server'
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'org.example.Server'
+    }
+}
+
+build.dependsOn shadowJar
+
+tasks.register('server', JavaExec) {
+    group = "run"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "org.example.Server"
+}
